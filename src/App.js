@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import Base from './components/Base'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+
+
+    const [holder, setHolder] = useState(0);
+
+    const plus =() =>{
+        setHolder(holder + 1)
+    }
+
+    const minus = () => holder <= 0 ? setHolder(0) : setHolder( holder - 1)
+
+
+    return (
+        <div>
+            <header>
+                <Base/>
+            </header>
+            <main>
+            <p>{holder}</p>
+            <button onClick={plus}>+</button>
+            <button onClick={minus}>-</button>
+            </main>
+        </div>
+    )
 }
-
-export default App;
+export default App
